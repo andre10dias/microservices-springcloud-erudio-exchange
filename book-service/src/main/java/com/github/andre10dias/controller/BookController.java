@@ -48,8 +48,12 @@ public class BookController {
                 currency
         );
 
-        book.setEnvironment(port + " FEIGN");
         assert exchangeDto != null;
+        book.setEnvironment(
+                "BOOK PORT: " + port
+                        + " EXCAHNGE PORT: " + exchangeDto.enviroment()
+        );
+
         book.setPrice(exchangeDto.conversionValue());
         book.setCurrency(currency);
         return book;
